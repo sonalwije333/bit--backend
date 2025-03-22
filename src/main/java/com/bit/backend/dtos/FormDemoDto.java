@@ -7,10 +7,6 @@ public class FormDemoDto {
    private String email;
    private int age;
 
-public FormDemoDto() {
-
-}
-
     public FormDemoDto(int id, String firstName, String lastName, String email, int age) {
         this.id = id;
         this.firstName = firstName;

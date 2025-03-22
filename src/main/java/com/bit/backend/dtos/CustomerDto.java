@@ -2,17 +2,14 @@ package com.bit.backend.dtos;
 
 public class CustomerDto {
 
-       private Long id;
-       private String firstName;
-       private String lastName;
-       private int age ;
-       private String gender;
-       private String email;
-       private String phoneNumber;
-       private String address;
-
-
-       public CustomerDto() {}
+    private Long id;
+    private String firstName;
+    private String lastName;
+    private int age ;
+    private String gender;
+    private String email;
+    private String phoneNumber;
+    private String address;
 
     public CustomerDto(Long id, String firstName, String lastName, int age, String gender, String email, String phoneNumber, String address) {
         this.id = id;
