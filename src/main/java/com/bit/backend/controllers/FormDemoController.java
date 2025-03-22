@@ -7,7 +7,6 @@ import com.bit.backend.services.impl.FormDemoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.net.URI;
 import java.util.List;
 
@@ -66,4 +65,3 @@ public class FormDemoController {
             throw new AppException("Request failed with error: " + 0, HttpStatus.INTERNAL_SERVER_ERROR);
 
         }}}
- 
