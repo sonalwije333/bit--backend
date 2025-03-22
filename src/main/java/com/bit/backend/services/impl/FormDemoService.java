@@ -22,15 +22,13 @@ public class FormDemoService implements FormDemoServiceI {
 
     private final FormDemoRepository formDemoRepository;
     private final FormDemoMapper formDemoMapper;
-    // private final FormDemoServiceI formDemoServiceI;  meka ona na wage ain karala balamu
+
 
     // Constructor for dependency injection
-    public FormDemoService(FormDemoRepository formDemoRepository, FormDemoMapper formDemoMapper
-//            , FormDemoServiceI formDemoServiceI
-    ) {
+    public FormDemoService(FormDemoRepository formDemoRepository, FormDemoMapper formDemoMapper) {
         this.formDemoRepository = formDemoRepository;
         this.formDemoMapper = formDemoMapper;
-//        this.formDemoServiceI = formDemoServiceI;
+
     }
 
     @Override
