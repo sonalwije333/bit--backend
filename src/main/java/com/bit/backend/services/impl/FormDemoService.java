@@ -77,7 +77,7 @@ public class FormDemoService implements FormDemoServiceI {
             return responseFormDemoDto;
 
         } catch (Exception e){
-        FormDemoDto newFormDemoDto = new FormDemoDto();
+      //  FormDemoDto newFormDemoDto = new FormDemoDto();
         throw new AppException("Request failed with error " + 0, HttpStatus.INTERNAL_SERVER_ERROR);
 
         }
