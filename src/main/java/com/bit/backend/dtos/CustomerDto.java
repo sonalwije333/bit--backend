@@ -9,6 +9,7 @@ public class CustomerDto {
     private String gender;
     private String email;
     private String phoneNumber;
+
     private String address;
 
     public CustomerDto(Long id, String firstName, String lastName, int age, String gender, String email, String phoneNumber, String address) {
