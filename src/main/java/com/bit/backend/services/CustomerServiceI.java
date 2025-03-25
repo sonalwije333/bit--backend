@@ -8,7 +8,7 @@ import java.util.List;
 public interface CustomerServiceI {
     CustomerDto  addCustomerEntity(CustomerDto customerDto);
     List<CustomerDto> getData();
-    CustomerDto updateCustomerEntity(long id, CustomerDto customerDto);
+    CustomerDto updateCustomer(long id, CustomerDto customerDto);
     CustomerDto deleteCustomer(long id);
 
 

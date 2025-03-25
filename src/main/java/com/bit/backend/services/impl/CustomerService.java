@@ -2,10 +2,8 @@ package com.bit.backend.services.impl;
 
 import com.bit.backend.dtos.CustomerDto;
 import com.bit.backend.entities.CustomerEntity;
-import com.bit.backend.entities.FormDemoEntity;
 import com.bit.backend.exceptions.AppException;
 import com.bit.backend.mappers.CustomerMapper;
-import com.bit.backend.mappers.FormDemoMapper;
 import com.bit.backend.repositories.CustomerRepository;
 
 import com.bit.backend.services.CustomerServiceI;
@@ -13,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerService  implements CustomerServiceI {
@@ -46,12 +45,37 @@ public class CustomerService  implements CustomerServiceI {
 
     @Override
     public List<CustomerDto> getData() {
-        return List.of();
+        try{
+            List<CustomerEntity> customerEntityList = customerRepository.findAll();
+            List<CustomerDto> customerDtoList =  customerMapper.toCustomerDtoList(customerEntityList);
+            return customerDtoList;
+
+        } catch (Exception e){
+            throw new AppException("Request failed with error " + 0, HttpStatus.INTERNAL_SERVER_ERROR);
+
+        }
     }
 
     @Override
-    public CustomerDto updateCustomerEntity(long id, CustomerDto customerDto) {
-        return null;
+    public CustomerDto updateCustomer(long id, CustomerDto customerDto) {
+        try{
+            Optional<CustomerEntity> optionalCustomerEntity = customerRepository.findById(id);  //error occured here so changed integer to Long in Customer Repository
+
+            if (!optionalCustomerEntity.isPresent()) {
+                throw new AppException("Customer Does Not Exist", HttpStatus.BAD_REQUEST);
+            }
+            CustomerEntity newcustomerEntity =  customerMapper.toCustomerEntity(customerDto);
+
+            CustomerEntity customerEntity =  customerRepository.save(newcustomerEntity);
+
+            CustomerDto responseCustomerDto = customerMapper.toCustomerDto(customerEntity);
+            return responseCustomerDto;
+
+        } catch (Exception e){
+
+            throw new AppException("Request failed with error " + 0, HttpStatus.INTERNAL_SERVER_ERROR);
+
+        }
     }
 
     @Override
