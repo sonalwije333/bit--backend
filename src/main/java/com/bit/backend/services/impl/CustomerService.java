@@ -52,7 +52,6 @@ public class CustomerService  implements CustomerServiceI {
 
         } catch (Exception e){
             throw new AppException("Request failed with error " + 0, HttpStatus.INTERNAL_SERVER_ERROR);
-
         }
     }
 
@@ -60,26 +59,29 @@ public class CustomerService  implements CustomerServiceI {
     public CustomerDto updateCustomer(long id, CustomerDto customerDto) {
         try{
             Optional<CustomerEntity> optionalCustomerEntity = customerRepository.findById(id);  //error occured here so changed integer to Long in Customer Repository
-
             if (!optionalCustomerEntity.isPresent()) {
                 throw new AppException("Customer Does Not Exist", HttpStatus.BAD_REQUEST);
             }
             CustomerEntity newcustomerEntity =  customerMapper.toCustomerEntity(customerDto);
-
             CustomerEntity customerEntity =  customerRepository.save(newcustomerEntity);
-
             CustomerDto responseCustomerDto = customerMapper.toCustomerDto(customerEntity);
             return responseCustomerDto;
-
         } catch (Exception e){
-
             throw new AppException("Request failed with error " + 0, HttpStatus.INTERNAL_SERVER_ERROR);
-
         }
     }
 
     @Override
     public CustomerDto deleteCustomer(long id) {
-        return null;
+        try {
+            Optional<CustomerEntity> optionalCustomerEntity = customerRepository.findById(id);
+            if (!optionalCustomerEntity.isPresent()) {
+                throw new AppException("Customer Does Not Exist", HttpStatus.BAD_REQUEST);
+            }
+            customerRepository.deleteById(id);
+            return customerMapper.toCustomerDto(optionalCustomerEntity.get());
+        } catch (Exception e) {
+            throw new AppException("Request failed with error " + 0, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

@@ -20,5 +20,5 @@ public interface UserMapper {
 
     AuthDto toAuthDto(Integer authId);
 
-//    List<AuthDto> toAuthDto(List<Integer> authIds);
+    //List<AuthDto> toAuthDto(List<Integer> authIds);
 }
