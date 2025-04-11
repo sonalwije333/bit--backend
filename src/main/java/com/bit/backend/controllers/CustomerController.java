@@ -31,7 +31,7 @@ public class CustomerController {
 
     @GetMapping("/customer")
     public ResponseEntity<List<CustomerDto>> getData(){
-        /* controlller -> service (interface) -> repository*/
+        /* controller -> service (interface) -> repository*/
         /* DTO , Entity , Mapper */
 
         try{
