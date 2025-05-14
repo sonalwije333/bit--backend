@@ -70,7 +70,8 @@ public class FormDemoService implements FormDemoServiceI {
                 throw new AppException("Form Demo Does Not Exist", HttpStatus.BAD_REQUEST);
             }
             FormDemoEntity newformDemoEntity =  formDemoMapper.toFormDemoEntity(formDemoDto);
-
+            //set id to newformdemoentity to update
+            newformDemoEntity.setId(id);
             FormDemoEntity formDemoEntity =  formDemoRepository.save(newformDemoEntity);
 
             FormDemoDto responseFormDemoDto = formDemoMapper.toFormDemoDto(formDemoEntity);

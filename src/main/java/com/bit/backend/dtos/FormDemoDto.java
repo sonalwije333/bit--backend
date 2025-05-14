@@ -1,18 +1,30 @@
 package com.bit.backend.dtos;
 
+import java.time.LocalDate;
+
 public class FormDemoDto {
    private int id;
    private String firstName;
    private String lastName;
    private String email;
    private int age;
+   private LocalDate birthDate;
 
-    public FormDemoDto(int id, String firstName, String lastName, String email, int age) {
+    public FormDemoDto(int id, LocalDate birthDate, String firstName, String lastName, String email, int age) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.age = age;
+        this.birthDate = birthDate;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
     public int getId() {

@@ -2,6 +2,8 @@ package com.bit.backend.entities;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "form_demo")
 public class FormDemoEntity {
@@ -22,6 +24,17 @@ public class FormDemoEntity {
 
     @Column (name = "email")
     private String email;
+
+    @Column (name = "birthDate")
+    private LocalDate birthDate;
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
 
     public Long getId() {
         return id;
@@ -67,11 +80,12 @@ public class FormDemoEntity {
 
 }
 
-public FormDemoEntity(Long id, String firstName, String lastName, String age, String email) {
+public FormDemoEntity(Long id, LocalDate birthDate, String firstName, String lastName, String age, String email) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
     this.age = age;
     this.email = email;
+    this.birthDate = birthDate;
 }
 }
