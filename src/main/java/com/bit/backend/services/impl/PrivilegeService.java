@@ -3,11 +3,8 @@ package com.bit.backend.services.impl;
 import com.bit.backend.dtos.SystemPrivilegeDto;
 import com.bit.backend.dtos.SystemPrivilegeListDto;
 import com.bit.backend.entities.Privilege;
-import com.bit.backend.entities.User;
-import com.bit.backend.exceptions.AppException;
 import com.bit.backend.repositories.PrivilegeRepository;
 import com.bit.backend.services.PrivilegeServiceI;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

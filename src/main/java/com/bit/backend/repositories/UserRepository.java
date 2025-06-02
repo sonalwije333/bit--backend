@@ -1,8 +1,5 @@
 package com.bit.backend.repositories;
 
-import com.bit.backend.dtos.AuthDto;
-import com.bit.backend.dtos.SystemPrivilegeDto;
-import com.bit.backend.dtos.SystemPrivilegeListDto;
 import com.bit.backend.entities.User;
 import jakarta.persistence.Tuple;
 import org.springframework.data.jpa.repository.JpaRepository;

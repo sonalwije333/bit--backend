@@ -8,8 +8,6 @@ import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import java.util.List;
-
 @Mapper(componentModel = "spring", builder = @Builder(disableBuilder = true))
 public interface UserMapper {
 
