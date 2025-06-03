@@ -7,6 +7,7 @@ public class ItemRegistrationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "itemName")
     private String itemName;
 
@@ -18,6 +19,9 @@ public class ItemRegistrationEntity {
 
     @Column(name = "type")
     private String type;
+
+    @Column(name = "consumetype")
+    private String consumeType;
 
     @Column(name = "description")
     private String description;
@@ -36,6 +40,27 @@ public class ItemRegistrationEntity {
 
     @Column(name = "prescriptionRequired")
     private String prescriptionRequired;
+
+    @Column(name = "reorderLevel")
+    private String reorderLevel;
+
+    public ItemRegistrationEntity(Long id, String itemName, String genericName, String formulation, String type, String consumeType, String description, String packSize, String unitOfMeasure, String batchNumber, String expiryDate, String prescriptionRequired, String reorderLevel) {
+        this.id = id;
+        this.itemName = itemName;
+        this.genericName = genericName;
+        this.formulation = formulation;
+        this.type = type;
+        this.consumeType = consumeType;
+        this.description = description;
+        this.packSize = packSize;
+        this.unitOfMeasure = unitOfMeasure;
+        this.batchNumber = batchNumber;
+        this.expiryDate = expiryDate;
+        this.prescriptionRequired = prescriptionRequired;
+        this.reorderLevel = reorderLevel;
+    }
+
+    public ItemRegistrationEntity() {}
 
     public Long getId() {
         return id;
@@ -75,6 +100,14 @@ public class ItemRegistrationEntity {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getConsumeType() {
+        return consumeType;
+    }
+
+    public void setConsumeType(String consumeType) {
+        this.consumeType = consumeType;
     }
 
     public String getDescription() {
@@ -125,32 +158,10 @@ public class ItemRegistrationEntity {
         this.prescriptionRequired = prescriptionRequired;
     }
 
-    public String getSelectedImageName() {
-        return selectedImageName;
+    public String getReorderLevel() {
+        return reorderLevel;
     }
 
-    public void setSelectedImageName(String selectedImageName) {
-        this.selectedImageName = selectedImageName;
-    }
-
-    @Column(name = "selectedImageName")
-    private String selectedImageName;
-
-
-    public ItemRegistrationEntity() {
-    }
-    public ItemRegistrationEntity(Long id, String itemName, String genericName, String formulation, String type, String description, String packSize, String unitOfMeasure, String batchNumber, String expiryDate, String prescriptionRequired, String selectedImageName) {
-        this.id = id;
-        this.itemName = itemName;
-        this.genericName = genericName;
-        this.formulation = formulation;
-        this.type = type;
-        this.description = description;
-        this.packSize = packSize;
-        this.unitOfMeasure = unitOfMeasure;
-        this.batchNumber = batchNumber;
-        this.expiryDate = expiryDate;
-        this.prescriptionRequired = prescriptionRequired;
-        this.selectedImageName = selectedImageName;
-    }
-}
+    public void setReorderLevel(String reorderLevel) {
+        this.reorderLevel = reorderLevel;
+    }}

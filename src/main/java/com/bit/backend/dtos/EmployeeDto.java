@@ -142,7 +142,5 @@ public class EmployeeDto {
         return emergencyPhoneNumber;
     }
 
-    public void setEmergencyPhoneNumber(String emergencyPhoneNumber) {
-        this.emergencyPhoneNumber = emergencyPhoneNumber;
-    }
+    public void setEmergencyPhoneNumber(String emergencyPhoneNumber) {this.emergencyPhoneNumber = emergencyPhoneNumber;}
 }
