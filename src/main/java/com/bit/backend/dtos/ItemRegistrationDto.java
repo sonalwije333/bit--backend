@@ -3,6 +3,7 @@ package com.bit.backend.dtos;
 public class ItemRegistrationDto {
     private Long id;
     private String itemName;
+    
     private String genericName;
     private String formulation;
     private String type;
